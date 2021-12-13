@@ -1,0 +1,71 @@
+/* Селекторы и свойства */
+/* Универсальный селектор */
+*{
+    /* border: solid 3px greenyellow;  */
+    margin: 0;
+    padding: 0;
+}
+/* селектор по тегу */
+div {
+    border: solid 2px; 
+}
+
+/* селектор по классу */
+.wrapper {
+    border: none;
+}
+
+/* селектор по идентификатору */
+#c1 {
+    border-color: green;
+}
+#c2 {
+    border-color: red;
+}
+#c3 {
+    border-color: blue;
+}
+
+/* Grid CSS */
+body {
+    height: 100vh;
+}
+
+.wrapper {
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "s1 main s2"
+    "footer footer s2";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 80px 1fr 100px;
+}
+@media (max-width: 500px){
+    .wrapper{
+    grid-template-areas: 
+    "header header header"
+    "s1 s1 s1"
+    "main main main"
+    "s2 s2 s2"
+    "footer footer footer";
+    grid-template-rows: 80px 70px 1fr 50px 80px; 
+    }
+   
+}
+
+.header {
+    grid-area: header;
+}
+.sidebar_1 {
+    grid-area: s1;
+}
+.main {
+    grid-area: main;
+}
+.sidebar_2 {
+    grid-area: s2;
+}
+.footer {
+    grid-area: footer;
+}
