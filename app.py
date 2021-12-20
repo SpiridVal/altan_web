@@ -10,7 +10,7 @@ def home_page():
 
 @app.route("/product")
 def product_page():
-    return render_template("index.html")
+    return render_template("product.html")
 
 if __name__== "__main__":
     app.run(debug=True)

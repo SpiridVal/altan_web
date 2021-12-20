@@ -1,5 +1,6 @@
+/* Импортирование шрифтов */
 
-import url 
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
 
 /* Селекторы и свойства */
 /* Универсальный селектор */
@@ -16,7 +17,7 @@ div {
 /* селектор по классу */
 .wrapper {
     border: none;
-
+    font-family: 'Imperial Script', Arial, cursive;
 }
 
 /* селектор по идентификатору */
@@ -77,7 +78,7 @@ body {
     
 }
 
-/* Селектро потомков */
+/* Селектор потомков */
 .navbar a{
     text-decoration: none; 
     color: royalblue;
