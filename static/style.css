@@ -38,15 +38,15 @@ body {
 
 .wrapper {
     height: 100%;
-    display: grid;
+    display: grid; 
     grid-template-areas: 
-    "header header header"
-    "s1 main s2"
-    "footer footer s2";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 80px 1fr 100px;
+    "header header header header header"
+    "main main main main main"
+    "footer footer footer footer footer";
+    grid-template-columns: minmax(auto, 10%) repeat(3, 1fr) minmax(auto, 10%);
+    grid-template-rows: minmax(auto, 15%) 1fr 80px;
 }
-@media (max-width: 500px){
+/* @media (max-width: 500px){
     .wrapper{
     grid-template-areas: 
     "header header header"
@@ -57,15 +57,38 @@ body {
     grid-template-rows: 80px 70px 1fr 50px 80px; 
     }
    
+} */
+
+header, footer {
+    background-color: rgb(143, 58, 58);
 }
 
 .header {
     grid-area: header;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(auto, 10%) repeat(3, 1fr) minmax(auto, 10%);
+    padding: 10px 0;
+    align-items: center;
+}
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-left: 5px;
+    grid-column: 2 / 3;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo>div {
+    border: none;
+    color: rgb(143, 58, 58);
 }
 .navbar {
-    border: solid 2px green;
+    grid-column: 3 /5;
+    /* border: solid 2px green; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -75,32 +98,71 @@ body {
 /* Скомбинированный селектор дочерних элементов */
 .navbar>li {
     /* border: solid 1px red; */
-    
+    display: block;
+    margin: 0 20px;
 }
 
 /* Селектор потомков */
 .navbar a{
     text-decoration: none; 
-    color: royalblue;
+    color: rgb(240, 242, 247);
     font-size: x-large;
+    
 }
 /* Псевдокласс наведения курсора */
 .navbar a:hover {
     color: goldenrod;
 
 }
-
-
-
-.sidebar_1 {
-    grid-area: s1;
+/* псевдоэлемент */
+.navbar li::after {
+    content: "|";
+    color: rgb(240, 242, 247);
 }
+
 .main {
     grid-area: main;
+    grid-column: 2 / 5;
 }
-.sidebar_2 {
-    grid-area: s2;
+.product-main {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 20px 50% 10px 1fr;
+    align-items: center;
+    justify-content: center;
+    border: none;
 }
+.product-main div {
+    border: none;
+}
+.product-main h1{
+    grid-row: 2 / 3;
+}
+.product-main form {
+    grid-row: 3 / 4;
+}
+.field {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 20px 0;
+}
+.field label {
+    margin-right: 10px;
+}
+.message {
+    grid-row: 4 / 5;
+}
+
 .footer {
     grid-area: footer;
+    grid-template-columns: minmax(auto, 10%) repeat(3, 1fr) minmax(auto, 10%);
 }
+
+
+/* .sidebar_1 {
+    grid-area: s1;
+} */
+
+/* .sidebar_2 {
+    grid-area: s2;
+} */
